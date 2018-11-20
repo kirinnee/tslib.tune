@@ -1,5 +1,4 @@
 let spawn = require('child_process').spawn;
-let fs = require("fs");
 
 //command will be the first argument
 let command = process.argv[2];
@@ -12,7 +11,6 @@ Execute(command, args, watch).then();
 
 //The decision on what command to execute base on the arguments and whether watch exists
 async function Execute(command, args, watch) {
-    let full = args.filter(s => s === "--full").length > 0;
     switch (command) {
         case "wp":
             let wp = `webpack --config ./config/webpack.${args[0]}.ts`;
@@ -25,22 +23,22 @@ async function Execute(command, args, watch) {
             break;
         case "e2e":
             await run("node script wp e2e");
-            let headless = [
-                "chrome:headless", 
-                "firefox:headless", 
-                "chrome-canary:headless" 
-            ].map(s => `testcafe ${s} ./test/e2e/**/*.test.ts`);
-            let real = [
-                "chrome", 
-                "firefox", 
-                "ie", 
-                "opera", 
-                "chrome-canary", 
-                "edge" 
-            ].map(s => `testcafe ${s} ./test/e2e/**/*.test.ts`);
-            let test = headless;
-            if (full) test = test.concat(real);
-            await run(test.join(" && "));
+            // let headless = [
+            //     "chrome:headless",
+            //     "firefox:headless",
+            //     "chrome-canary:headless"
+            // ].map(s => `testcafe ${s} ./test/e2e/**/*.test.ts`);
+            // let real = [
+            //     "chrome",
+            //     "firefox",
+            //     "ie",
+            //     "opera",
+            //     "chrome-canary",
+            //     "edge"
+            // ].map(s => `testcafe ${s} ./test/e2e/**/*.test.ts`);
+            // let test = headless;
+            // if (full) test = test.concat(real);
+            // await run(test.join(" && "));
             break;
         case "publish":
             await run(`npm run deploy`);

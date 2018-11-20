@@ -2,12 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        .pass {
+            color: greenyellow;
+        }
+
+        .fail {
+            color: orangered;
+        }
+    </style>
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
-    <label for="input">Some Input</label>
-    <input id="input"/>
-    <button onclick="">click</button>
-    <div id="target"></div>
+<div id="load-pro">
+    0/0
+</div>
+
+<button id="test-start">STARTO</button>
+
+<div id="test-result">
+
+</div>
+<div id="realtestresult"></div>
 </body>
 </html>
