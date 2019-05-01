@@ -2,6 +2,10 @@
 
 Audio Library, wrapper over Howlerjs, which gives for more robust functions such as easing
 
+Source: [GitLab](https://gitlab.com/node-packages-kirin/tune)
+
+Mirror: [GitHub](https://github.com/kirinnee/tslib.tune)
+
 # Getting Started
 
 Install via NPM 
